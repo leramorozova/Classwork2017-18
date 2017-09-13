@@ -1,12 +1,9 @@
-import urllib.request
+import urllib.request as req
 import re
 
-req = urllib.request.Request('https://yandex.ru/pogoda/moscow')
-with urllib.request.urlopen(req) as response:
-   html = response.read().decode('utf-8')
-
-page=html.split('><')
-for line in page:
-    reg_td_w=re.compile('current\-weather.+', flags= re.DOTALL)
-    reg=reg_td_w.findall(page)
-    for el in reg:
+html_code = req.Request('https://yandex.ru/pogoda/moscow')
+with req.urlopen(html_code) as response:
+    html_info = response.read().decode('utf-8')
+    temp = re.search('<div class="current-weather__thermometer current-weather__thermometer_type_now">(.*?)</div>',
+                     html_info)
+    print('Температура в Москве на данный момент: ' + str(temp.group(1)))
