@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #1. Скачать главную страницу Яндекс.Погоды и
 #   а) распечатать сегодняшнюю температуру и облачность
 #   б) распечатать время восхода и заката
@@ -38,3 +39,14 @@ def task_2():
         print(titles.group(2))
 
 task_2()
+=======
+import urllib.request as req
+import re
+
+html_code = req.Request('https://yandex.ru/pogoda/moscow')
+with req.urlopen(html_code) as response:
+    html_info = response.read().decode('utf-8')
+    temp = re.search('<div class="current-weather__thermometer current-weather__thermometer_type_now">(.*?)</div>',
+                     html_info)
+    print('Температура в Москве на данный момент: ' + str(temp.group(1)))
+>>>>>>> 906cb270e3f932e456381d45d02afa43e0e6de1a
