@@ -21,19 +21,19 @@ def task_1():
 
         tomorrow=re.search('(.*?)"dayIndex":2(.*?)(Максимальная температура днём)">(.*?)</div>(.*?)(Минимальная температура ночью)">(.*?)</div>', html_info)
         print('Прогноз на завтра:')
-        print(str(tomorrow.group(3))+ ' ' +tomorrow.group(4))
+        print(str(tomorrow.group(3))+ ' ' + tomorrow.group(4))
         print(str(tomorrow.group(6)) + ' ' + tomorrow.group(7))
 
 #2. Скачать главную страницу waitbutwhy.com. Распечатать заголовки популярных постов (которые в колонке справа
-# с надписью Popular Posts) и колличество комментариев у каждого из них.
+#с надписью Popular Posts) и количество комментариев у каждого из них.
 
 def task_2():
-    url = 'https://waitbutwhy.com//'
+    url = 'https://waitbutwhy.com/'
     user_agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'
-    req = urllib.request.Request('https://habrahabr.ru/', headers={'User-Agent': user_agent})
+    req = urllib.request.Request('https://waitbutwhy.com/', headers={'User-Agent': user_agent})
     with urllib.request.urlopen(req) as response:
         html = response.read().decode('utf-8')
-        lines=html.split('\n')
-        titles=re.search('<h5><a href="(.*?)">(.*?)</a><h5>', html, flags = re.DOTALL)
-        print(titles.group(2))
+        titles = re.findall('Popular Posts</a></h5></li>.*?<h5><a href=".*?">.*?</a></h5>', html, flags= re.DOTALL)
+        print (titles)
 
+task_2()
