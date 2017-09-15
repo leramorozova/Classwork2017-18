@@ -30,10 +30,18 @@ def task_1():
 def task_2():
     url = 'https://waitbutwhy.com/'
     user_agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'
-    req = urllib.request.Request('https://waitbutwhy.com/', headers={'User-Agent': user_agent})
+    req = urllib.request.Request('https://waitbutwhy.com/', headers = {'User-Agent': user_agent})
     with urllib.request.urlopen(req) as response:
         html = response.read().decode('utf-8')
-        titles = re.findall('Popular Posts</a></h5></li>.*?<h5><a href=".*?">.*?</a></h5>', html, flags= re.DOTALL)
-        print (titles)
+        reg1 = re.search('Popular Posts</a></h5></li>.*?<!-- /tiles -->', html, flags = re.DOTALL)
+        populars=reg1.group()
+        info=re.findall('<a href=".*?">.*?</a>.*?[0-9]{1,4}</a>', populars, flags = re.DOTALL)
+        for el in info:
+            reg2=re.search('<h5>.*?<a href=".*?">(.*?)</a>.*?<i class="icon-comments"></i>(.*?)</a>', el, flags = re.DOTALL)
+            name=reg2.group(1)
+            comments=reg2.group(2)
+            print('Название статьи: ', name, '\n', 'Количество комментариев к ней: ', comments)
 
-task_2()
+def main():
+    task_1()
+    task_2()
