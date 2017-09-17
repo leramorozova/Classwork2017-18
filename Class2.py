@@ -17,6 +17,7 @@ for i in range(160400, 160425):
     pageUrl = commonUrl + str(i)
     download_page(pageUrl)
 
+___________________________________________________________________________________________
 
 # Скачать код страницы, найти ссылку на следующий/предыдущий пост,
 # перейти по ней и скачать следующую страницу. И так все - краулер
@@ -25,6 +26,7 @@ import urllib.request
 import re
 
 # на входе ссылка на страницу
+# на выходе код страницы + сохраненный файл с ним (имя - номер страницы)
 
 def download_file(url):
     user_agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'
@@ -36,17 +38,22 @@ def download_file(url):
     text = page_code.write(html)
     return html
 
-# по выполнении данного цикла на выходе ссылка на след страницу + файл с предыдущей
+# по выполнении данного цикла на выходе ссылка на след страницу
 # на входе код страницы
+
 def search_link(html):
     reg = re.search('<!-- next / previous links -->.*?<a href="(.*?)">.*?</a>.*?<!-- / next / previous links -->', html, flags = re.DOTALL)
     next_link = 'http://www.forumishqiptar.com/' + reg.group(1)
     return next_link
 
+# цикл скачивает по одной ссылке и переходит по следующей
+# это долго, много файлов
+# это долго, много файлов
 
 new_link = search_link(download_file('http://www.forumishqiptar.com/threads/162496-Ndihm-per-Windows-7'))
-if new_link!= None:
+while new_link!= None:
     next_page=search_link(download_file(new_link))
     new_link=next_page
-    search_link(download_file(new_link))
+else:
+    break
 print('Done')
