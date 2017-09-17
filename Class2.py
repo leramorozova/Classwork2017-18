@@ -1,4 +1,4 @@
-#example, выкачиваем много страниц
+# example, выкачиваем много страниц
 
 import urllib.request
 
@@ -22,7 +22,6 @@ ________________________________________________________________________________
 # Скачать код страницы, найти ссылку на следующий/предыдущий пост,
 # перейти по ней и скачать следующую страницу. И так все - краулер
 
-import urllib.request
 import re
 
 # на входе ссылка на страницу
@@ -42,12 +41,11 @@ def download_file(url):
 # на входе код страницы
 
 def search_link(html):
-    reg = re.search('<!-- next / previous links -->.*?<a href="(.*?)">.*?</a>.*?<!-- / next / previous links -->', html, flags = re.DOTALL)
+    reg = re.search('<!-- next / previous.*?<a href="(.*?)">.*?</a>.*?links -->', html, flags = re.DOTALL)
     next_link = 'http://www.forumishqiptar.com/' + reg.group(1)
     return next_link
 
 # цикл скачивает по одной ссылке и переходит по следующей
-# это долго, много файлов
 # это долго, много файлов
 
 new_link = search_link(download_file('http://www.forumishqiptar.com/threads/162496-Ndihm-per-Windows-7'))
