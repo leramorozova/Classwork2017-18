@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Вот, что получилось</title>
+</head>
+<body>
+<h1>Запрошенный вами язык: {{lang}}</h1>
+<h2>Его код в таблице: {{code}}</h2>
+<p>Другие языки, код которых начинается на ту же букву: </p>
+<ul>
+    {% for name, nulik in first_letter.items() %}
+    <p>{{ name }}</p>
+    {% endfor %}
+<h3><a href="/form">Кстати! А вот ссылка на страницу с формой!</h3>
+</ul>
+</body>
+</html>
