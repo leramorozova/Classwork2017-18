@@ -9,7 +9,7 @@
 
 3. [с семинаров(2017-18)](https://github.com/ancatmara/learnpython2017)
 
-4. [классная работа 2016-18](https://github.com/leramorozova/Classwork2017-18)
+4. [классная работа (2017-18)](https://github.com/leramorozova/Classwork2017-18)
 
 <hr>
 
