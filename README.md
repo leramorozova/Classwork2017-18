@@ -3,13 +3,13 @@
 
 ### Конспекты:
 
-1. [с семинаров (2016-17)](https://github.com/ElizavetaKuzmenko/Programming-and-computer-instruments)
+1. с семинаров [(2016-17)](https://github.com/ElizavetaKuzmenko/Programming-and-computer-instruments)
 
-2. [мои (2016-17)](https://github.com/leramorozova/apelsinchik)
+2. мои, тоже с семинаров [(2016-17)](https://github.com/leramorozova/apelsinchik)
 
-3. [с семинаров(2017-18)](https://github.com/ancatmara/learnpython2017)
+3. с семинаров [(2017-18)](https://github.com/ancatmara/learnpython2017)
 
-4. [классная работа (2017-18)](https://github.com/leramorozova/Classwork2017-18)
+4. классная работа [(2017-18)](https://github.com/leramorozova/Classwork2017-18)
 
 <hr>
 
