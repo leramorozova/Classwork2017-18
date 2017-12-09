@@ -32,7 +32,7 @@ def form():
         age = request.args['age']
         st = True if 'student' in request.args else False
         return render_template('answer.html', name=name, age=age, student=st)
-    return render_template('question.html')
+    return render_template('questions.html')
 
 
 @app.route('/books')
